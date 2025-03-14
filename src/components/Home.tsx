@@ -3,6 +3,7 @@ import { useState } from 'react';
 import BrewingMethodSelector from './BrewingMethodSelector';
 import BrewingMethodDetails from './BrewingMethodDetails';
 import { TFunction } from 'i18next';
+import { Helmet } from 'react-helmet-async';
 
 const getV60Data = (liquidSize: number, t: TFunction) => {
   const bloomWater = Math.round(liquidSize * 0.12);
@@ -59,38 +60,50 @@ const Home = () => {
     : getFrenchPressData(liquidSize, t);
 
   return (
-    <div className="container mx-auto px-4 py-6">
-      {/* Header Section */}
-      <header className="mb-12">
-        <div className="flex justify-end mb-4">
-          <button
-            onClick={toggleLanguage}
-            className="text-gray-400 hover:text-white transition-colors"
-          >
-            {i18n.language === 'en' ? 'ES' : 'EN'}
-          </button>
-        </div>
-        <div className="text-center">
-          <h1 className="text-5xl font-bold mb-3">
-            {t('title')}
-          </h1>
-          <p className="text-gray-400 text-lg">
-            {t('subtitle')}
-          </p>
-        </div>
-      </header>
+    <>
+      <Helmet>
+        <title>{t('title')} | {t('seo.title')}</title>
+        <meta name="description" content={t('seo.description')} />
+        <meta name="keywords" content={t('seo.keywords')} />
+        <meta property="og:title" content={`${t('title')} | ${t('seo.title')}`} />
+        <meta property="og:description" content={t('seo.description')} />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://coffee.juanrey.co" />
+        <html lang={i18n.language} />
+      </Helmet>
+      <div className="container mx-auto px-4 py-6">
+        {/* Header Section */}
+        <header className="mb-12">
+          <div className="flex justify-end mb-4">
+            <button
+              onClick={toggleLanguage}
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              {i18n.language === 'en' ? 'ES' : 'EN'}
+            </button>
+          </div>
+          <div className="text-center">
+            <h1 className="text-5xl font-bold mb-3">
+              {t('title')}
+            </h1>
+            <p className="text-gray-400 text-lg">
+              {t('subtitle')}
+            </p>
+          </div>
+        </header>
 
-      <main>
-        <BrewingMethodSelector
-          selectedMethod={selectedMethod}
-          onMethodChange={setSelectedMethod}
-        />
-        <BrewingMethodDetails
-          {...brewingData}
-          onLiquidSizeChange={handleLiquidSizeChange}
-        />
-      </main>
-    </div>
+        <main>
+          <BrewingMethodSelector
+            selectedMethod={selectedMethod}
+            onMethodChange={setSelectedMethod}
+          />
+          <BrewingMethodDetails
+            {...brewingData}
+            onLiquidSizeChange={handleLiquidSizeChange}
+          />
+        </main>
+      </div>
+    </>
   );
 };
 

@@ -33,5 +33,10 @@ export default {
         stir: 'Revuelve 1x en sentido horario y 1x en sentido antihorario, agita y deja drenar. Tomará mucho más tiempo si estás usando Chemex en lugar de V60.'
       }
     }
+  },
+  seo: {
+    title: 'Calculadora de Preparación de Café',
+    description: 'Calcula proporciones precisas de café basadas en las recetas de James Hoffmann. Obtén medidas perfectas para V60, French Press y más.',
+    keywords: 'calculadora de café, James Hoffmann, receta V60, receta French Press, proporciones de café, medidas de café'
   }
 }; 

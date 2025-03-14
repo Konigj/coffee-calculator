@@ -33,5 +33,10 @@ export default {
         stir: 'Stir 1x clockwise and 1x counterclockwise, swirl, and let it draw down. It will take a lot longer if you\'re using the Chemex as opposed to the V60.'
       }
     }
+  },
+  seo: {
+    title: 'Coffee Brewing Calculator',
+    description: 'Calculate precise coffee brewing ratios based on James Hoffmann\'s recipes. Get perfect measurements for V60, French Press, and more.',
+    keywords: 'coffee calculator, James Hoffmann, V60 recipe, French Press recipe, coffee brewing ratios, coffee measurements'
   }
 }; 
